@@ -4,31 +4,31 @@ event onRead()
 
 Utility.Wait(5.0)
 
-	if Game.GetPlayer().GetItemCount(Mace) > 0
+	if PlayerRef.getItemCount(Alias_CrusaderMace.getReference()) > 0
 		myQST.SetStage(10)
 	endif
 
-	if Game.GetPlayer().GetItemCount(Sword) > 0
+	if PlayerRef.getItemCount(Alias_CrusaderSword.getReference()) > 0
 		myQST.SetStage(20)
 	endif
 
-	if Game.GetPlayer().GetItemCount(Boots) > 0
+	if PlayerRef.getItemCount(Alias_CrusaderBoots.getReference()) > 0
 		myQST.SetStage(30)
 	endif
 
-	if Game.GetPlayer().GetItemCount(Chestplate) > 0
+	if PlayerRef.getItemCount(Alias_CrusaderArmor.getReference()) > 0
 		myQST.SetStage(40)
 	endIf
 
-	if Game.GetPlayer().GetItemCount(Gloves) > 0
+	if PlayerRef.getItemCount(Alias_CrusaderGloves.getReference()) > 0
 		myQST.SetStage(50)
 	endif
 
-	if Game.GetPlayer().GetItemCount(Helm) > 0
+	if PlayerRef.getItemCount(Alias_CrusaderHelm.getReference()) > 0
 		myQST.SetStage(60)
 	endif
 
-	if Game.GetPlayer().GetItemCount(Shield) > 0
+	if PlayerRef.getItemCount(Alias_CrusaderShield.getReference()) > 0
 		myQST.SetStage(70)
 	endif
 
@@ -36,16 +36,18 @@ endevent
 
 Quest Property myQST  Auto  
 
-Weapon Property Mace Auto
+ReferenceAlias Property Alias_CrusaderMace Auto
 
-Weapon Property Sword Auto
+ReferenceAlias Property Alias_CrusaderSword Auto
 
-Armor Property Boots Auto
+ReferenceAlias Property Alias_CrusaderBoots Auto
 
-Armor Property Chestplate Auto
+ReferenceAlias Property Alias_CrusaderArmor Auto
 
-Armor Property Gloves Auto
+ReferenceAlias Property Alias_CrusaderGloves Auto
 
-Armor Property Helm Auto
+ReferenceAlias Property Alias_CrusaderHelm Auto
 
-Armor Property Shield Auto
+ReferenceAlias Property Alias_CrusaderShield Auto
+
+Actor Property PlayerRef Auto
