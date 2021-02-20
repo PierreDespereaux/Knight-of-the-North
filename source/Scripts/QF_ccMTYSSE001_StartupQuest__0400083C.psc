@@ -2,31 +2,6 @@
 ;NEXT FRAGMENT INDEX 10
 Scriptname QF_ccMTYSSE001_StartupQuest__0400083C Extends Quest Hidden
 
-;BEGIN ALIAS PROPERTY CrusaderShield
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_CrusaderShield Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY DibellaKnightNote
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_DibellaKnightNote Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY CrusaderMace
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_CrusaderMace Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY KnightJournal
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_KnightJournal Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY LettertoJarl
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_LettertoJarl Auto
-;END ALIAS PROPERTY
-
 ;BEGIN ALIAS PROPERTY CrusaderGloves
 ;ALIAS PROPERTY TYPE ReferenceAlias
 ReferenceAlias Property Alias_CrusaderGloves Auto
@@ -37,14 +12,9 @@ ReferenceAlias Property Alias_CrusaderGloves Auto
 ReferenceAlias Property Alias_NorthkeepThalmor Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY CrusaderBoots
+;BEGIN ALIAS PROPERTY KyneKnightNote
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_CrusaderBoots Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY CrusaderArmor
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_CrusaderArmor Auto
+ReferenceAlias Property Alias_KyneKnightNote Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY StendarrBeaonKnightNote
@@ -52,29 +22,19 @@ ReferenceAlias Property Alias_CrusaderArmor Auto
 ReferenceAlias Property Alias_StendarrBeaonKnightNote Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY FalkreathShrineThalmorNote
+;BEGIN ALIAS PROPERTY CrusaderShield
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_FalkreathShrineThalmorNote Auto
+ReferenceAlias Property Alias_CrusaderShield Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY Sanyon
+;BEGIN ALIAS PROPERTY CrusaderBoots
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Sanyon Auto
+ReferenceAlias Property Alias_CrusaderBoots Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY CrusaderSword
+;BEGIN ALIAS PROPERTY ArkayNote
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_CrusaderSword Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY CrusaderHelm
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_CrusaderHelm Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY RoriksteadThalmor
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_RoriksteadThalmor Auto
+ReferenceAlias Property Alias_ArkayNote Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY IcebergThalmor1
@@ -82,15 +42,86 @@ ReferenceAlias Property Alias_RoriksteadThalmor Auto
 ReferenceAlias Property Alias_IcebergThalmor1 Auto
 ;END ALIAS PROPERTY
 
+;BEGIN ALIAS PROPERTY StendarrThalmor
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_StendarrThalmor Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY Alessandra
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_Alessandra Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY CrusaderMace
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_CrusaderMace Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY CrusaderSword
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_CrusaderSword Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY LettertoJarl
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_LettertoJarl Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY CrusaderArmor
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_CrusaderArmor Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY KnightJournal
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_KnightJournal Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY RoriksteadThalmor
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_RoriksteadThalmor Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY FalkreathShrineThalmorNote
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_FalkreathShrineThalmorNote Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY CrusaderHelm
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_CrusaderHelm Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY DibellaKnightNote
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_DibellaKnightNote Auto
+;END ALIAS PROPERTY
+
 ;BEGIN ALIAS PROPERTY IcebergeThalmor2
 ;ALIAS PROPERTY TYPE ReferenceAlias
 ReferenceAlias Property Alias_IcebergeThalmor2 Auto
 ;END ALIAS PROPERTY
 
+;BEGIN FRAGMENT Fragment_7
+Function Fragment_7()
+;BEGIN CODE
+SetObjectiveCompleted(50)
+;END CODE
+EndFunction
+;END FRAGMENT
+
 ;BEGIN FRAGMENT Fragment_9
 Function Fragment_9()
 ;BEGIN CODE
 SetObjectiveCompleted(70)
+;END CODE
+EndFunction
+;END FRAGMENT
+
+;BEGIN FRAGMENT Fragment_8
+Function Fragment_8()
+;BEGIN CODE
+SetObjectiveCompleted(60)
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -110,38 +141,6 @@ SetObjectiveDisplayed(70)
 EndFunction
 ;END FRAGMENT
 
-;BEGIN FRAGMENT Fragment_3
-Function Fragment_3()
-;BEGIN CODE
-SetObjectiveCompleted(10)
-;END CODE
-EndFunction
-;END FRAGMENT
-
-;BEGIN FRAGMENT Fragment_8
-Function Fragment_8()
-;BEGIN CODE
-SetObjectiveCompleted(60)
-;END CODE
-EndFunction
-;END FRAGMENT
-
-;BEGIN FRAGMENT Fragment_6
-Function Fragment_6()
-;BEGIN CODE
-SetObjectiveCompleted(40)
-;END CODE
-EndFunction
-;END FRAGMENT
-
-;BEGIN FRAGMENT Fragment_7
-Function Fragment_7()
-;BEGIN CODE
-SetObjectiveCompleted(50)
-;END CODE
-EndFunction
-;END FRAGMENT
-
 ;BEGIN FRAGMENT Fragment_5
 Function Fragment_5()
 ;BEGIN CODE
@@ -150,10 +149,26 @@ SetObjectiveCompleted(30)
 EndFunction
 ;END FRAGMENT
 
+;BEGIN FRAGMENT Fragment_3
+Function Fragment_3()
+;BEGIN CODE
+SetObjectiveCompleted(10)
+;END CODE
+EndFunction
+;END FRAGMENT
+
 ;BEGIN FRAGMENT Fragment_4
 Function Fragment_4()
 ;BEGIN CODE
 SetObjectiveCompleted(20)
+;END CODE
+EndFunction
+;END FRAGMENT
+
+;BEGIN FRAGMENT Fragment_6
+Function Fragment_6()
+;BEGIN CODE
+SetObjectiveCompleted(40)
 ;END CODE
 EndFunction
 ;END FRAGMENT
