@@ -17,9 +17,11 @@ Find a Crusader Relic to begin the quest!
 Do not use the [Unofficial Patch](https://www.nexusmods.com/skyrimspecialedition/mods/18975) for this Creation, the relevant changes have been forwarded.
 
 ![](https://raw.githubusercontent.com/PierreDespereaux/PierreDespereaux/master/assets/images/banners/Credits.png)\
-VictorF for the reworked left gauntlet mesh and attached scripts.\
-Catir for the mod's name.\
-Maty743 for their work on the Divine Crusader Creation.\
+
+VictorF for the reworked left gauntlet mesh and attached scripts.
+Catir for the mod's name.
+Maty743 for their work on the Divine Crusader Creation.
+
 ![](https://raw.githubusercontent.com/PierreDespereaux/PierreDespereaux/master/assets/images/banners/My%20Mods.png)
 
 [![](https://raw.githubusercontent.com/PierreDespereaux/PierreDespereaux/master/assets/images/banners/Master.png)](https://www.nexusmods.com/users/61720101)
