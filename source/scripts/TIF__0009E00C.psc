@@ -9,6 +9,7 @@ Actor akSpeaker = akSpeakerRef as Actor
 akSpeaker.modfavorpoints(50)
 GetOwningQuest().Setstage(170)
 Game.GetPlayer().Additem(CrusaderSwordCaseKey)
+ccMTY_DES_Sword.SetActorOwner(Game.GetPlayer().GetActorBase())
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -16,3 +17,5 @@ EndFunction
 ;END FRAGMENT CODE - Do not edit anything between this and the begin comment
 
 Key Property CrusaderSwordCaseKey  Auto  
+
+ObjectReference Property ccMTY_DES_Sword auto
