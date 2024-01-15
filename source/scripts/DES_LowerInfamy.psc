@@ -17,25 +17,29 @@ Quest Property ccMTYSSE001_Quest auto
 
 auto state Waiting
     Event OnMagicEffectApply(ObjectReference akCaster, MagicEffect akEffect)
-	debug.notification("A magic effect has been applied.")
+	;debug.notification("A magic effect has been applied.")
         if ccMTY_DES_NineDivines.HasForm(akEffect)
-	     debug.notification("A Divine has been prayed to.")
-            ChangeInfamy(InfamyChangeShrines)
-            GoToState("Cooldown")
+	    ; debug.notification("A Divine has been prayed to.")
+	     If !ccMTYSSE001_Quest.IsRunning()
+            		ChangeInfamy(InfamyChangeShrines)
+           		GoToState("Cooldown")
+		ENDIF
        endIf
     endEvent
 
     Event OnHit(ObjectReference akAggressor, Form akSource, Projectile akProjectile, bool abPowerAttack, bool abSneakAttack, \
   bool abBashAttack, bool abHitBlocked)
 		if (akSource == FavorJobsBeggarsAbility as Spell)
-			debug.notification("Charity has been given.")
-			ChangeInfamy(InfamyChangeCharity)
-			GoToState("Cooldown")
+			;debug.notification("Charity has been given.")
+	   		  If !ccMTYSSE001_Quest.IsRunning()
+				ChangeInfamy(InfamyChangeCharity)
+				GoToState("Cooldown")
+			ENDIF
 		endif
 	endevent
 
 function ChangeInfamy(float d)
-	debug.notification("Infamy is being changed.")
+	;debug.notification("Infamy is being changed.")
         float oldInfamy = ccMTYSSE001_CrusaderGlobalInfamy.GetValue()
         float newInfamy = ccMTYSSE001_CrusaderGlobalInfamy.Mod(d)
         if(newInfamy < 0.0)
