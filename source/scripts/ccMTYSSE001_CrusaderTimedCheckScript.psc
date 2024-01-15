@@ -17,13 +17,16 @@ function OnUpdateGameTime()
 	int myOldCrime = (Quest.GetQuest("DES_InfamyTrackerQuest") as DES_CrimeValues).myOldCrime
 	myNewCrime = ccmtysse001_crimesharedfunctions.GetPlayerCrimeTotal()
 	IF myNewCrime > myOldCrime 
-		ccMTYSSE001_CrusaderGlobalInfamy.Mod(1)
+		int i = myNewCrime - myOldCrime
+		ccMTYSSE001_CrusaderGlobalInfamy.Mod(i)
 	ENDIF
 	ccMTYSSE001_CrusaderGlobalInfamy.SetValueInt(myNewCrime)
 	if ccMTYSSE001_CrusaderGlobalInfamy.GetValueInt() > 15
-		ccMTYSSE001_CrusaderRelicsShrine.Show()
-		ccMTYSSE001_CrusaderGlobalMessageShown.SetValueInt(2)
-		ccMTYSSE001_Quest.SetStage(10)
+		IF !ccMTYSSE001_Quest.IsRunning()
+			ccMTYSSE001_CrusaderRelicsShrine.Show()
+			ccMTYSSE001_CrusaderGlobalMessageShown.SetValueInt(2)
+			ccMTYSSE001_Quest.SetStage(10)
+		ENDIF
 	endIf
 	myOldCrime = myNewCrime
 	RegisterForSingleUpdateGameTime(timeToCheck as Float)
