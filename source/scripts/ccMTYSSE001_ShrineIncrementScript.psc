@@ -23,8 +23,9 @@ function ResetShrines()
 endFunction
 
 function SetCrimeStatBaseline()
-	(Quest.GetQuest("DES_InfamyTrackerQuest") as DES_CrimeValues).myNewCrime = ccmtysse001_crimesharedfunctions.GetPlayerCrimeTotal()
-	(Quest.GetQuest("DES_InfamyTrackerQuest") as DES_CrimeValues).myOldCrime = ccmtysse001_crimesharedfunctions.GetPlayerCrimeTotal()
+	Quest InfamyQuest = Game.GetFormFromFile(0x846, "Knight of the North.esp") As Quest
+	(InfamyQuest as DES_CrimeValues).myNewCrime = ccmtysse001_crimesharedfunctions.GetPlayerCrimeTotal()
+	(InfamyQuest as DES_CrimeValues).myOldCrime = ccmtysse001_crimesharedfunctions.GetPlayerCrimeTotal()
 	ccMTYSSE001_CrusaderGlobalInfamy.SetValueInt(0)
 endFunction
 

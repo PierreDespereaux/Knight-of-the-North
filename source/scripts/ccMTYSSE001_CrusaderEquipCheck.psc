@@ -6,8 +6,9 @@ quest property ccMTYSSE001_Quest auto
 globalvariable property ccMTYSSE001_CrusaderGlobalInfamy auto
 
 function OnEquipped(Actor akActor)
-	int myNewCrime = (Quest.GetQuest("DES_InfamyTrackerQuest") as DES_CrimeValues).myNewCrime
-	int myOldCrime = (Quest.GetQuest("DES_InfamyTrackerQuest") as DES_CrimeValues).myOldCrime
+	Quest InfamyQuest = Game.GetFormFromFile(0x846, "Knight of the North.esp") As Quest
+	int myNewCrime = (InfamyQuest as DES_CrimeValues).myNewCrime
+	int myOldCrime = (InfamyQuest as DES_CrimeValues).myOldCrime
 	if akActor == game.GetPlayer()
 		myNewCrime = ccmtysse001_crimesharedfunctions.GetPlayerCrimeTotal()
 		IF myNewCrime > myOldCrime 

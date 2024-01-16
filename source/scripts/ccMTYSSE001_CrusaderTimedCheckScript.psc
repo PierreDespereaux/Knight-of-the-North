@@ -13,9 +13,9 @@ function OnEffectStart(Actor akTarget, Actor akCaster)
 endFunction
 
 function OnUpdateGameTime()
-	int myNewCrime = (Quest.GetQuest("DES_InfamyTrackerQuest") as DES_CrimeValues).myNewCrime
-	int myOldCrime = (Quest.GetQuest("DES_InfamyTrackerQuest") as DES_CrimeValues).myOldCrime
-	myNewCrime = ccmtysse001_crimesharedfunctions.GetPlayerCrimeTotal()
+	Quest InfamyQuest = Game.GetFormFromFile(0x846, "Knight of the North.esp") As Quest
+	int myNewCrime = (InfamyQuest as DES_CrimeValues).myNewCrime
+	int myOldCrime = (InfamyQuest as DES_CrimeValues).myOldCrime
 	IF myNewCrime > myOldCrime 
 		int i = myNewCrime - myOldCrime
 		ccMTYSSE001_CrusaderGlobalInfamy.Mod(i)

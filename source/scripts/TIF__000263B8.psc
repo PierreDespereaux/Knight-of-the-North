@@ -7,11 +7,13 @@ Function Fragment_0(ObjectReference akSpeakerRef)
 Actor akSpeaker = akSpeakerRef as Actor
 ;BEGIN CODE
 GetOwningQuest().SetStage(100)
-ccMTY_DES_Helm.SetActorOwner(Game.GetPlayer().GetActorBase())
+Quest CrusaderQuest = Game.GetFormFromFile(0x83C, "ccmtysse001-knightsofthenine.esl") As Quest
+CrusaderQuest.SetStage(55)
+T01ConclusionScene.Start()
 ;END CODE
 EndFunction
 ;END FRAGMENT
 
 ;END FRAGMENT CODE - Do not edit anything between this and the begin comment
 
-ObjectReference  Property ccMTY_DES_Helm  Auto  
+Scene Property T01ConclusionScene  Auto  
