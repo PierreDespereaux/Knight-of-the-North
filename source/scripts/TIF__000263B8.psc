@@ -9,11 +9,8 @@ Actor akSpeaker = akSpeakerRef as Actor
 GetOwningQuest().SetStage(100)
 Quest CrusaderQuest = Game.GetFormFromFile(0x83C, "ccmtysse001-knightsofthenine.esl") As Quest
 CrusaderQuest.SetStage(55)
-T01ConclusionScene.Start()
 ;END CODE
 EndFunction
 ;END FRAGMENT
 
 ;END FRAGMENT CODE - Do not edit anything between this and the begin comment
-
-Scene Property T01ConclusionScene  Auto  
