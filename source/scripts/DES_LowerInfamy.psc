@@ -6,14 +6,8 @@ Spell Property FavorJobsBeggarsAbility auto
 float property InfamyChangeShrines auto
 float property InfamyChangeCharity auto
 float property CoolDown auto
-Message Property ccMTY_DES_InfamyMessage0 auto
-Message Property ccMTY_DES_InfamyMessage1 auto
-Message Property ccMTY_DES_InfamyMessage2 auto
-Message Property ccMTY_DES_InfamyMessage3 auto
-Message Property ccMTY_DES_InfamyMessage4 auto
-Message Property ccMTY_DES_InfamyMessage5 auto
-Message Property ccMTY_DES_InfamyMessage0Bad auto
 Quest Property ccMTYSSE001_Quest auto
+Keyword Property DES_InfamyEffect auto
 
 auto state Waiting
     Event OnMagicEffectApply(ObjectReference akCaster, MagicEffect akEffect)
@@ -49,21 +43,7 @@ function ChangeInfamy(float d)
 	debug.notification("Infamy is now " + newInfamy)
         ;do threshold stuff here
         ;if old infamy < threshold && new infamy > threshold
-	IF newInfamy >= 0 && newInfamy < 1 && !ccMTYSSE001_Quest.IsCompleted()
-		ccMTY_DES_InfamyMessage0.Show()
-	ELSEIF newInfamy >= 0 && newInfamy < 1 && ccMTYSSE001_Quest.IsCompleted()
-		ccMTY_DES_InfamyMessage0Bad.Show()
-	ELSEIF newInfamy <= 5 && newInfamy > 0 
-		ccMTY_DES_InfamyMessage1.Show()
-	ELSEIF newInfamy <=10 && newInfamy > 5
-		ccMTY_DES_InfamyMessage2.Show()
-	ELSEIF newInfamy <=14&& newInfamy > 10
-		ccMTY_DES_InfamyMessage3.Show()
-	ELSEIF newInfamy >= 15 && newInfamy < 16
-		ccMTY_DES_InfamyMessage4.Show()
-	ELSEIF newInfamy >= 16
-		ccMTY_DES_InfamyMessage5.Show()
-	ENDIF
+	(self.getOwningQuest() as DES_CrimeValues).InfamyMessages(oldInfamy, newInfamy)
 endFunction
 
 endState

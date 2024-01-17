@@ -1,12 +1,49 @@
 Scriptname DES_CrimeValues extends Quest  
 
-int property myNewCrime auto conditional
+GlobalVariable Property ccMTYSSE001_CrusaderGlobalInfamy auto
+Quest Property ccMTYSSE001_Quest auto
+Message Property ccMTYSSE001_CrusaderRelicsShrine auto
+GlobalVariable Property ccMTYSSE001_CrusaderGlobalMessageShown auto
+Message Property ccMTY_DES_HonorIncreaseMsg auto
+Message Property ccMTY_DES_HonorDecreaseMsg auto
+Message Property ccMTY_DES_FinalWarning auto
 
-int property myOldCrime auto conditional
+Function modInfamy(int i)
+	IF !ccMTYSSE001_Quest.IsRunning()
+		float oldInfamy = ccMTYSSE001_CrusaderGlobalInfamy.GetValueInt()
+		ccMTYSSE001_CrusaderGlobalInfamy.Mod(i)
+		float newInfamy = ccMTYSSE001_CrusaderGlobalInfamy.GetValueInt()
+		IF ccMTYSSE001_CrusaderGlobalInfamy.GetValueInt() > 15
+			IF !ccMTYSSE001_Quest.IsRunning()
+				ccMTYSSE001_CrusaderRelicsShrine.Show()
+				ccMTYSSE001_CrusaderGlobalMessageShown.SetValueInt(2)
+				ccMTYSSE001_Quest.SetStage(10)
+			ENDIF
+		ENDIF
+		InfamyMessages(oldInfamy, newInfamy)
+	ENDIF
+endFunction
 
-Event OnInit()
-
-myOldCrime = ccmtysse001_crimesharedfunctions.GetPlayerCrimeTotal()
-myNewCrime = ccmtysse001_crimesharedfunctions.GetPlayerCrimeTotal()
-
-EndEvent
+Function InfamyMessages(float oldInfamy, float newInfamy)
+	IF !ccMTYSSE001_Quest.IsRunning()
+		IF newInfamy >= 15 && newInfamy < 16 
+			ccMTY_DES_FinalWarning.Show()
+		ELSEIF newInfamy < oldInfamy
+			IF newInfamy <= 0 && oldInfamy >0
+				ccMTY_DES_HonorIncreaseMsg.Show()
+			ELSEIF newInfamy <= 6 && oldInfamy >= 5
+				ccMTY_DES_HonorIncreaseMsg.Show()
+			ELSEIF newInfamy <= 11 && oldInfamy >= 10
+				ccMTY_DES_HonorIncreaseMsg.Show()
+			ENDIF
+		ELSEIF newInfamy > oldInfamy
+			IF newInfamy > 0 && oldInfamy <=0
+				ccMTY_DES_HonorDecreaseMsg.Show()
+			ELSEIF newInfamy >= 6 && oldInfamy <= 5
+				ccMTY_DES_HonorDecreaseMsg.Show()
+			ELSEIF newInfamy >= 11 && oldInfamy <= 10
+				ccMTY_DES_HonorDecreaseMsg.Show()
+			ENDIF
+		ENDIF
+	ENDIF
+endFunction
