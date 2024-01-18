@@ -9,7 +9,7 @@ Actor akSpeaker = akSpeakerRef as Actor
 akSpeaker.modfavorpoints(50)
 GetOwningQuest().Setstage(250)
 Quest CrusaderQuest = Game.GetFormFromFile(0x83C, "ccmtysse001-knightsofthenine.esl") As Quest
-CrusaderQuest.SetStage(15)
+CrusaderQuest.SetStage(25)
 ;END CODE
 EndFunction
 ;END FRAGMENT

@@ -7,6 +7,8 @@ GlobalVariable Property ccMTYSSE001_CrusaderGlobalMessageShown auto
 Message Property ccMTY_DES_HonorIncreaseMsg auto
 Message Property ccMTY_DES_HonorDecreaseMsg auto
 Message Property ccMTY_DES_FinalWarning auto
+Formlist Property ccMTY_DES_CrusaderRelics auto
+Actor Property PlayerRef auto
 
 Function modInfamy(int i)
 	IF !ccMTYSSE001_Quest.IsRunning()
@@ -25,24 +27,27 @@ Function modInfamy(int i)
 endFunction
 
 Function InfamyMessages(float oldInfamy, float newInfamy)
+	IF newInfamy >= 15 && newInfamy < 16 
+		ccMTY_DES_FinalWarning.Show()
+	ENDIF
 	IF !ccMTYSSE001_Quest.IsRunning()
-		IF newInfamy >= 15 && newInfamy < 16 
-			ccMTY_DES_FinalWarning.Show()
-		ELSEIF newInfamy < oldInfamy
-			IF newInfamy <= 0 && oldInfamy >0
-				ccMTY_DES_HonorIncreaseMsg.Show()
-			ELSEIF newInfamy <= 6 && oldInfamy >= 5
-				ccMTY_DES_HonorIncreaseMsg.Show()
-			ELSEIF newInfamy <= 11 && oldInfamy >= 10
-				ccMTY_DES_HonorIncreaseMsg.Show()
-			ENDIF
-		ELSEIF newInfamy > oldInfamy
-			IF newInfamy > 0 && oldInfamy <=0
-				ccMTY_DES_HonorDecreaseMsg.Show()
-			ELSEIF newInfamy >= 6 && oldInfamy <= 5
-				ccMTY_DES_HonorDecreaseMsg.Show()
-			ELSEIF newInfamy >= 11 && oldInfamy <= 10
-				ccMTY_DES_HonorDecreaseMsg.Show()
+		IF (PlayerRef.GetItemCount(ccMTY_DES_CrusaderRelics) > 0)
+			IF newInfamy < oldInfamy
+				IF newInfamy <= 0 && oldInfamy >0
+					ccMTY_DES_HonorIncreaseMsg.Show()
+				ELSEIF newInfamy <= 6 && oldInfamy >= 5
+					ccMTY_DES_HonorIncreaseMsg.Show()
+				ELSEIF newInfamy <= 11 && oldInfamy >= 10
+					ccMTY_DES_HonorIncreaseMsg.Show()
+				ENDIF
+			ELSEIF newInfamy > oldInfamy
+				IF newInfamy > 0 && oldInfamy <=0
+					ccMTY_DES_HonorDecreaseMsg.Show()
+				ELSEIF newInfamy >= 6 && oldInfamy <= 5
+					ccMTY_DES_HonorDecreaseMsg.Show()
+				ELSEIF newInfamy >= 11 && oldInfamy <= 10
+					ccMTY_DES_HonorDecreaseMsg.Show()
+				ENDIF
 			ENDIF
 		ENDIF
 	ENDIF

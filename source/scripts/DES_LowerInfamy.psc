@@ -2,12 +2,13 @@ Scriptname DES_LowerInfamy extends ReferenceAlias
 
 GlobalVariable property ccMTYSSE001_CrusaderGlobalInfamy auto
 Formlist property ccMTY_DES_NineDivines auto
-Spell Property FavorJobsBeggarsAbility auto
+MagicEffect Property AlchFortifyPersuasion auto
 float property InfamyChangeShrines auto
 float property InfamyChangeCharity auto
 float property CoolDown auto
 Quest Property ccMTYSSE001_Quest auto
 Keyword Property DES_InfamyEffect auto
+Actor Property PlayerRef auto
 
 auto state Waiting
     Event OnMagicEffectApply(ObjectReference akCaster, MagicEffect akEffect)
@@ -19,18 +20,16 @@ auto state Waiting
            		GoToState("Cooldown")
 		ENDIF
        endIf
-    endEvent
-
-    Event OnHit(ObjectReference akAggressor, Form akSource, Projectile akProjectile, bool abPowerAttack, bool abSneakAttack, \
-  bool abBashAttack, bool abHitBlocked)
-		if (akSource == FavorJobsBeggarsAbility as Spell)
-			;debug.notification("Charity has been given.")
-	   		  If !ccMTYSSE001_Quest.IsRunning()
+		if akEffect == AlchFortifyPersuasion
+			if !akCaster == PlayerRef 
+				;debug.notification("Charity has been given.")
+				If !ccMTYSSE001_Quest.IsRunning()
 				ChangeInfamy(InfamyChangeCharity)
-				GoToState("Cooldown")
-			ENDIF
+					GoToState("Cooldown")
+				ENDIF
+			endif
 		endif
-	endevent
+    endEvent
 
 function ChangeInfamy(float d)
 	;debug.notification("Infamy is being changed.")
@@ -40,7 +39,7 @@ function ChangeInfamy(float d)
             ccMTYSSE001_CrusaderGlobalInfamy.SetValue(0.0)
             newInfamy = 0.0
         endIf
-	debug.notification("Infamy is now " + newInfamy)
+	;debug.notification("Infamy is now " + newInfamy)
         ;do threshold stuff here
         ;if old infamy < threshold && new infamy > threshold
 	(self.getOwningQuest() as DES_CrimeValues).InfamyMessages(oldInfamy, newInfamy)
