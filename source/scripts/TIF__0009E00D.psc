@@ -8,14 +8,12 @@ Actor akSpeaker = akSpeakerRef as Actor
 ;BEGIN CODE
 akSpeaker.modfavorpoints(50)
 GetOwningQuest().Setstage(250)
-Game.GetPlayer().Additem(CrusaderSwordCaseKey)
-ccMTY_DES_Sword.SetActorOwner(Game.GetPlayer().GetActorBase())
+Quest CrusaderQuest = Game.GetFormFromFile(0x83C, "ccmtysse001-knightsofthenine.esl") As Quest
+IF CrusaderQuest.IsRunning()
+   CrusaderQuest.SetStage(25)
+ENDIF
 ;END CODE
 EndFunction
 ;END FRAGMENT
 
 ;END FRAGMENT CODE - Do not edit anything between this and the begin comment
-
-Key Property CrusaderSwordCaseKey  Auto  
-
-ObjectReference Property ccMTY_DES_Sword auto
