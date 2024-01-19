@@ -2,34 +2,24 @@ Scriptname DES_LowerInfamy extends ReferenceAlias
 
 GlobalVariable property ccMTYSSE001_CrusaderGlobalInfamy auto
 Formlist property ccMTY_DES_NineDivines auto
-MagicEffect Property AlchFortifyPersuasion auto
 float property InfamyChangeShrines auto
-float property InfamyChangeCharity auto
 float property CoolDown auto
 Quest Property ccMTYSSE001_Quest auto
 Keyword Property DES_InfamyEffect auto
 Actor Property PlayerRef auto
+Keyword Property DES_DogBlessingKeyword auto
 
 auto state Waiting
     Event OnMagicEffectApply(ObjectReference akCaster, MagicEffect akEffect)
 	;debug.notification("A magic effect has been applied.")
-        if ccMTY_DES_NineDivines.HasForm(akEffect)
+        if ccMTY_DES_NineDivines.HasForm(akEffect) || akEffect.HasKeyword(DES_DogBlessingKeyword)
 	    ; debug.notification("A Divine has been prayed to.")
 	     If !ccMTYSSE001_Quest.IsRunning()
             		ChangeInfamy(InfamyChangeShrines)
            		GoToState("Cooldown")
 		ENDIF
-       endIf
-		if akEffect == AlchFortifyPersuasion
-			if !akCaster == PlayerRef 
-				;debug.notification("Charity has been given.")
-				If !ccMTYSSE001_Quest.IsRunning()
-				ChangeInfamy(InfamyChangeCharity)
-					GoToState("Cooldown")
-				ENDIF
-			endif
-		endif
-    endEvent
+	endIf
+    EndEvent
 
 function ChangeInfamy(float d)
 	;debug.notification("Infamy is being changed.")
