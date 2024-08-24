@@ -7,24 +7,9 @@ Scriptname QF_ccMTYSSE001_StartupQuest__0400083C Extends Quest Hidden
 ReferenceAlias Property Alias_CrusaderSword Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY FalkFirebeard
+;BEGIN ALIAS PROPERTY CrusaderShield
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_FalkFirebeard Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY Player
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_Player Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY CrusaderGloves
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_CrusaderGloves Auto
-;END ALIAS PROPERTY
-
-;BEGIN ALIAS PROPERTY CrusaderBoots
-;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_CrusaderBoots Auto
+ReferenceAlias Property Alias_CrusaderShield Auto
 ;END ALIAS PROPERTY
 
 ;BEGIN ALIAS PROPERTY CrusaderMace
@@ -37,66 +22,30 @@ ReferenceAlias Property Alias_CrusaderMace Auto
 ReferenceAlias Property Alias_CrusaderArmor Auto
 ;END ALIAS PROPERTY
 
+;BEGIN ALIAS PROPERTY CrusaderBoots
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_CrusaderBoots Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY Player
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_Player Auto
+;END ALIAS PROPERTY
+
+;BEGIN ALIAS PROPERTY CrusaderGloves
+;ALIAS PROPERTY TYPE ReferenceAlias
+ReferenceAlias Property Alias_CrusaderGloves Auto
+;END ALIAS PROPERTY
+
 ;BEGIN ALIAS PROPERTY CrusaderHelm
 ;ALIAS PROPERTY TYPE ReferenceAlias
 ReferenceAlias Property Alias_CrusaderHelm Auto
 ;END ALIAS PROPERTY
 
-;BEGIN ALIAS PROPERTY CrusaderShield
+;BEGIN ALIAS PROPERTY FalkFirebeard
 ;ALIAS PROPERTY TYPE ReferenceAlias
-ReferenceAlias Property Alias_CrusaderShield Auto
+ReferenceAlias Property Alias_FalkFirebeard Auto
 ;END ALIAS PROPERTY
-
-;BEGIN FRAGMENT Fragment_4
-Function Fragment_4()
-;BEGIN CODE
-SetObjectiveCompleted(20)
-;END CODE
-EndFunction
-;END FRAGMENT
-
-;BEGIN FRAGMENT Fragment_8
-Function Fragment_8()
-;BEGIN CODE
-SetObjectiveCompleted(60)
-;END CODE
-EndFunction
-;END FRAGMENT
-
-;BEGIN FRAGMENT Fragment_23
-Function Fragment_23()
-;BEGIN CODE
-;earned the helm
-SetObjectiveCompleted(67)
-SetObjectiveDisplayed(64, abDisplayed = false)
-SetObjectiveDisplayed(65, abDisplayed = false)
-SetObjectiveDisplayed(66, abDisplayed = false)
-SetObjectiveDisplayed(67, abDisplayed = false)
-;END CODE
-EndFunction
-;END FRAGMENT
-
-;BEGIN FRAGMENT Fragment_6
-Function Fragment_6()
-;BEGIN CODE
-SetObjectiveCompleted(40)
-;END CODE
-EndFunction
-;END FRAGMENT
-
-;BEGIN FRAGMENT Fragment_17
-Function Fragment_17()
-;BEGIN CODE
-SetObjectiveCompleted(20)
-SetObjectiveDisplayed(25)
-SetObjectiveDisplayed(26)
-IF IsActive()
-   MS06Start.SetActive()
-   MS06.SetActive()
-ENDIF
-;END CODE
-EndFunction
-;END FRAGMENT
 
 ;BEGIN FRAGMENT Fragment_10
 Function Fragment_10()
@@ -116,31 +65,12 @@ stop()
 EndFunction
 ;END FRAGMENT
 
-;BEGIN FRAGMENT Fragment_21
-Function Fragment_21()
+;BEGIN FRAGMENT Fragment_11
+Function Fragment_11()
 ;BEGIN CODE
-;earned the sword
-SetObjectiveCompleted(27)
-SetObjectiveDisplayed(24, abDisplayed = false)
-SetObjectiveDisplayed(25, abDisplayed = false)
-SetObjectiveDisplayed(26, abDisplayed = false)
-SetObjectiveDisplayed(27, abDisplayed = false)
-;END CODE
-EndFunction
-;END FRAGMENT
-
-;BEGIN FRAGMENT Fragment_7
-Function Fragment_7()
-;BEGIN CODE
-SetObjectiveCompleted(50)
-;END CODE
-EndFunction
-;END FRAGMENT
-
-;BEGIN FRAGMENT Fragment_5
-Function Fragment_5()
-;BEGIN CODE
-SetObjectiveCompleted(30)
+SetObjectiveCompleted(25)
+SetObjectiveFailed(26)
+SetObjectiveDisplayed(27)
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -159,16 +89,18 @@ SetObjectiveDisplayed(27, abDisplayed = false)
 EndFunction
 ;END FRAGMENT
 
-;BEGIN FRAGMENT Fragment_19
-Function Fragment_19()
+;BEGIN FRAGMENT Fragment_3
+Function Fragment_3()
 ;BEGIN CODE
-;stole the helm
-SetObjectiveCompleted(66)
-SetObjectiveFailed(65)
-SetObjectiveDisplayed(64, abDisplayed = false)
-SetObjectiveDisplayed(65, abDisplayed = false)
-SetObjectiveDisplayed(66, abDisplayed = false)
-SetObjectiveDisplayed(67, abDisplayed = false)
+SetObjectiveCompleted(10)
+;END CODE
+EndFunction
+;END FRAGMENT
+
+;BEGIN FRAGMENT Fragment_22
+Function Fragment_22()
+;BEGIN CODE
+SetObjectiveCompleted(57)
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -258,6 +190,22 @@ ENDIF
 EndFunction
 ;END FRAGMENT
 
+;BEGIN FRAGMENT Fragment_7
+Function Fragment_7()
+;BEGIN CODE
+SetObjectiveCompleted(50)
+;END CODE
+EndFunction
+;END FRAGMENT
+
+;BEGIN FRAGMENT Fragment_4
+Function Fragment_4()
+;BEGIN CODE
+SetObjectiveCompleted(20)
+;END CODE
+EndFunction
+;END FRAGMENT
+
 ;BEGIN FRAGMENT Fragment_18
 Function Fragment_18()
 ;BEGIN CODE
@@ -271,12 +219,36 @@ ENDIF
 EndFunction
 ;END FRAGMENT
 
+;BEGIN FRAGMENT Fragment_21
+Function Fragment_21()
+;BEGIN CODE
+;earned the sword
+SetObjectiveCompleted(27)
+SetObjectiveDisplayed(24, abDisplayed = false)
+SetObjectiveDisplayed(25, abDisplayed = false)
+SetObjectiveDisplayed(26, abDisplayed = false)
+SetObjectiveDisplayed(27, abDisplayed = false)
+;END CODE
+EndFunction
+;END FRAGMENT
+
+;BEGIN FRAGMENT Fragment_17
+Function Fragment_17()
+;BEGIN CODE
+SetObjectiveCompleted(20)
+SetObjectiveDisplayed(25)
+SetObjectiveDisplayed(26)
+IF IsActive()
+   MS06Start.SetActive()
+   MS06.SetActive()
+ENDIF
+;END CODE
+EndFunction
+;END FRAGMENT
+
 ;BEGIN FRAGMENT Fragment_13
 Function Fragment_13()
 ;BEGIN CODE
-Actor Player = Alias_Player.getActorReference()
-ObjectReference CrusaderHelm = Alias_CrusaderHelm.getReference()
-CrusaderHelm.SetActorOwner(Player.GetActorBase())
 SetObjectiveCompleted(65)
 SetObjectiveFailed(66)
 SetObjectiveDisplayed(67)
@@ -284,32 +256,24 @@ SetObjectiveDisplayed(67)
 EndFunction
 ;END FRAGMENT
 
-;BEGIN FRAGMENT Fragment_11
-Function Fragment_11()
+;BEGIN FRAGMENT Fragment_6
+Function Fragment_6()
 ;BEGIN CODE
-Actor Player = Alias_Player.getActorReference()
-ObjectReference CrusaderSword = Alias_CrusaderSword.getReference()
-Player.Additem(ccMTY_DES_HalloftheDeadKey)
-CrusaderSword.SetActorOwner(Player.GetActorBase())
-SetObjectiveCompleted(25)
-SetObjectiveFailed(26)
-SetObjectiveDisplayed(27)
+SetObjectiveCompleted(40)
 ;END CODE
 EndFunction
 ;END FRAGMENT
 
-;BEGIN FRAGMENT Fragment_3
-Function Fragment_3()
+;BEGIN FRAGMENT Fragment_19
+Function Fragment_19()
 ;BEGIN CODE
-SetObjectiveCompleted(10)
-;END CODE
-EndFunction
-;END FRAGMENT
-
-;BEGIN FRAGMENT Fragment_22
-Function Fragment_22()
-;BEGIN CODE
-SetObjectiveCompleted(57)
+;stole the helm
+SetObjectiveCompleted(66)
+SetObjectiveFailed(65)
+SetObjectiveDisplayed(64, abDisplayed = false)
+SetObjectiveDisplayed(65, abDisplayed = false)
+SetObjectiveDisplayed(66, abDisplayed = false)
+SetObjectiveDisplayed(67, abDisplayed = false)
 ;END CODE
 EndFunction
 ;END FRAGMENT
@@ -318,6 +282,35 @@ EndFunction
 Function Fragment_9()
 ;BEGIN CODE
 SetObjectiveCompleted(70)
+;END CODE
+EndFunction
+;END FRAGMENT
+
+;BEGIN FRAGMENT Fragment_23
+Function Fragment_23()
+;BEGIN CODE
+;earned the helm
+SetObjectiveCompleted(67)
+SetObjectiveDisplayed(64, abDisplayed = false)
+SetObjectiveDisplayed(65, abDisplayed = false)
+SetObjectiveDisplayed(66, abDisplayed = false)
+SetObjectiveDisplayed(67, abDisplayed = false)
+;END CODE
+EndFunction
+;END FRAGMENT
+
+;BEGIN FRAGMENT Fragment_5
+Function Fragment_5()
+;BEGIN CODE
+SetObjectiveCompleted(30)
+;END CODE
+EndFunction
+;END FRAGMENT
+
+;BEGIN FRAGMENT Fragment_8
+Function Fragment_8()
+;BEGIN CODE
+SetObjectiveCompleted(60)
 ;END CODE
 EndFunction
 ;END FRAGMENT
